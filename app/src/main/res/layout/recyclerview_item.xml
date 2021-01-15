@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="word"
+            type="com.hktech.storewords.data.db.entity.Word"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/card_view_margin"
+            card_view:cardCornerRadius="@dimen/card_view_radius"
+            card_view:cardBackgroundColor="@color/colorGreyLight"
+            card_view:cardElevation="0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/text_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:padding="4dp"
+                    android:text="@{word.word}"
+                    android:textColor="@color/purple_200"
+                    android:textSize="18sp"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_name"
+                    android:layout_marginRight="8dp"
+                    android:padding="4dp"
+                    android:text="@{word.translate}"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16sp"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toBottomOf="@+id/text_name" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>
